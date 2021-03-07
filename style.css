@@ -1,0 +1,106 @@
+button :hover{
+cursor:pointer;
+}
+#body_background{
+    background-image: url(/abstract_background_template_for_style_design_267606.jpg);
+    font-family: 'Shippori Mincho', serif;
+}
+#logout{
+    justify-content: flex-end;
+}
+#title-tag{
+    
+    font-size: 50px;
+}
+#search{
+border: none;
+padding: 0;
+background: none;
+}
+hr{
+    color: black;
+}
+.left{
+    text-align: left;
+    display: inline-block;
+}
+a{
+    cursor: pointer;
+}
+#img1{
+    cursor: pointer;
+}
+#sc-container{
+    text-align: center;
+    cursor: pointer;
+    border-width: 3px;
+    width: 600px;
+    height: 300;
+    margin: initial;
+    padding:initial;
+    display: inline-block;
+}
+.row{
+    display: inline-block;
+}
+#cnn{
+    width: 100px;
+    height: 100px
+}
+#art1{
+    border-radius: 25px;
+    width: 300px;
+    height:350px;
+    padding: 20px;
+    transition: transform .2s;
+}
+#art1:hover{
+-ms-transform: scale(1.1);
+-webkit-transform: scale(1.1);
+transform: scale(1.1);
+cursor:pointer;
+}
+#art2{
+    border-radius: 25px;
+    width: 300px;
+    height: 350px;
+    padding: 20px;
+    transition: transform .2s;
+}
+#art2:hover{
+-ms-transform: scale(1.1);
+-webkit-transform: scale(1.1);
+transform: scale(1.1);
+cursor: pointer;
+}
+#art3{
+    border-radius: 25px;
+    width: 300px;
+    height: 350px;
+    padding: 20px;
+    transition: transform .2s;
+}
+#art3:hover{
+-ms-transform: scale(1.1);
+-webkit-transform: scale(1.1);
+transform: scale(1.1);
+cursor: pointer;
+}
+#URLinput{
+    height: 20px;
+}
+#mic_button{
+    border-width: 0px;
+}
+.rd:hover{
+    cursor: pointer;
+}
+#customize{
+    background-color: transparent;
+    border-width: 0px;
+}
+.rightalign{
+    display: inline;
+    text-align: center;
+}
+

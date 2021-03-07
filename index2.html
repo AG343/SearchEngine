@@ -1,0 +1,77 @@
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>New Tab</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id='body_background'>
+    <center>
+        <button id='return' title='Return to Home' onclick='returntohome()'>
+            Return to Homepage
+        </button>
+        <h1>
+            Easy Set Up Steps
+        </h1>
+        <p>
+            1. Go to Chrome Settings
+            <br>
+            2. Click "On Startup" on the left side of the Screen
+            <br>
+            3. Click "Open a specific page or set of pages"
+            <br>
+            4. Click Add a new page
+            <br>
+            5. Enter the URL from the homepage and click Save
+            <br>
+            6. Done!
+        </p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </center>
+    <div class='container' data-toggle="modal" data-target="#div1">
+        <button class='glyphicon glyphicon-pencil' title='Customize' id='customize'></button>
+    </div>
+    <div class='modal fade' id='div1'>
+        <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button onclick='close()' id='closeurl' class='btn btn-danger close' type='button' title='Close' data-dismiss='modal'>&times;</button>
+                <h2>Customize your Background</h2>
+            </div>
+            <div class='modal-body'>
+                <center>
+                <span>
+                <button class="btn btn-success" type='button' id='enterurl' onclick='openurlinput()'>Add Image With URL</button>
+                <button class='btn btn-success' type='button' id='upload' onclick='addimageupload()'>Upload Image</button>
+            </span>
+            <div class='container' id='urldiv' hidden>
+                <center>
+            <input class='rightalign' id='inputurl' aria-label='Search'>
+            <button id='submitbutton' class='btn btn-info rightalign' onclick='addimagewithurl()'>Submit</button>
+        </center>
+        </div>
+        </center>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <center>
+        <script src='new.js'></script>
+    </center>
+
+</body>
+
+</html>
