@@ -1,10 +1,11 @@
-var SpeechRecognition = SpeechRecognition || window.webkitSpeechRecognition
+var SpeechRecognition = window.webkitSpeechRecognition
 var recognition = new SpeechRecognition()
 var newBookmark = ''
 var name = ''
 var url = ''
 var urlvalue = ''
 var input = ''
+var row=''
 var firebaseConfig = {
     apiKey: "AIzaSyASRHCRQpyKxHAvoTAEl_I8CixCWAeJG1I",
     authDomain: "e-and-r-df0db.firebaseapp.com",
@@ -48,10 +49,10 @@ function search() {
 }
 
 function voice() {
-    document.getElementById('searchinput');
+    document.getElementById('searchinput').innerHTML = ''
     recognition.start()
 }
-recognition.onresult = function run(event) {
+recognition.onresult = function (event) {
     console.log(event)
     var content = event.results[0][0].transcript
     console.log(content)
@@ -74,7 +75,7 @@ function add() {
 
 function bookmark() {
     newUrl = document.getElementById('BookmarkButton').value
-    window.open(urlvalue, '_blank')
+    window.open(newUrl, '_blank')
 }
 
 function getData() {
