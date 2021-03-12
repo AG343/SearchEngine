@@ -1,49 +1,48 @@
 <html lang='en'>
+
 <head>
     <meta charset="UTF-8">
     <title>New Tab</title>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap');
     </style>
-
 </head>
 
 <body id='body_background'>
-    <button title='Logout' id='logout' onclick='logout()' class='btn btn-danger glyphicon glyphicon-log-out text-right'>Logout
+    <button title='Logout' id='logout' onclick='logout()'
+        class='btn btn-danger glyphicon glyphicon-log-out text-right'>Logout
     </button>
+    <hr id='hr1'>
     <center>
-        <input type='text' id='URLinput' onkeydown="search()" class='form-control'>      
         <button class='btn btn-dark' onclick='tutorial()' title='Set Up Tutorial'>
             Set Up Info
         </button>
-        <div class="gcse-search">
-            <p id='title-tag'>
-                Search
-            </p>
-        </div>
-        <div class='container input-group' id='input-div'>
+        <form>
+            <div class='container input-group' id='input-div'>
                 <input type='text' class='form-control' id='searchinput' placeholder='Search The Web'>
-                <span class='input-group-addon'>
-                    <button id='mic_button' onclick='voice()'><i title='Search With Voice'class='fas fa-microphone-alt' style='font-size:24px;color:red'></i></button>
-                </span>
-           
-            <br>
-            <br>
-        </div>
+                <div class='input-group-btn'>
+                    <button type='submit' id='mic_button' onclick='voice()'><i title='Search With Voice'
+                            class='fas fa-microphone-alt' style='font-size:24px;color:red'></i>
+                    </button>
+                </div>
+                <br>
+                <br>
+            </div>
+        </form>
         <div>
             <div class='inline'>
-                <h2>Search On: </h2>
+                <h2 id='h2tag'>Search On: </h2>
                 <form>
                     <div class='inline'>
                         <input class='rd' id='yt' type='radio' name='choice'>Youtube
@@ -57,10 +56,10 @@
             </div>
         </div>
         <div>
-            <button title='Search' id='search-button' class='btn btn-success' onclick="search()">Search</button>
+            <button title='Search' id='search-button' class='btn btn-success sbtn' onclick="search()"> Search </button>
         </div>
-        <hr>
-        <h3>Shortcuts</h3>
+        <hr id='hr1'>
+        <h2 id='h2tag2'>Shortcuts</h2>
         <button type='button id=' link' onclick="window.open('https://myaccount.google.com/', '_blank')"
             class='glyphicon glyphicon-user btn btn-default'>Account</button>
         <button type='button id=' link' onclick="window.open('https://play.google.com/', '_blank')"
@@ -77,11 +76,12 @@
             class='glyphicon glyphicon-envelope btn btn-danger'>Gmail</button>
         <button type='button id=' add' onclick="add()"
             class='glyphicon glyphicon-plus-sign btn btn-link'>AddShortcut</button>
-            <br>
-            
+        <br>
         <div id='btn_output'></div>
         </div>
-        <h2>Widgets</h2>
+        <button id='delete' class='btn btn-danger' onclick='remove()'>Delete All Shortcuts</button>
+        <h2 id='widgettag'>Widgets</h2>
+        <hr id='hr1'>
         <div class='left right'>
             <iframe src="https://www.bigtimer.net/?minutes=10&repeat=false" height="250" width="500"
                 scrolling="no"></iframe>
@@ -106,16 +106,10 @@
         </div>
         <script src="https://cdn.speedcheck.org/basic/scbjs.min.js" async></script>
 
-        <iframe allow="microphone;" width="350" height="300"
-            src="https://console.dialogflow.com/api-client/demo/embedded/74ddbbc3-e102-4dc2-ae0a-9a6838e2fc08">
-        </iframe class='row'>
-        <div class='row' id='calendar'>
-            <iframe
-                src="https://calendar.google.com/calendar/embed?src=7sv9a1207q24atsgpi5gsu7bakk5npi9%40import.calendar.google.com&ctz=America%2FLos_Angeles"
-                style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        </div>
-        <a class="weatherwidget-io" href="https://forecast7.com/en/37d55n121d99/fremont/" data-label_1="FREMONT"
-            data-label_2="WEATHER" data-theme="original">FREMONT WEATHER</a>
+        <iframe allow="microphone;" width="350" height="300" class='row'>
+        </iframe>
+        <a id='pain' class="weatherwidget-io row" href="https://forecast7.com/en/37d55n121d99/fremont/"
+            data-label_1="FREMONT" data-label_2="WEATHER" data-theme="original">FREMONT WEATHER</a>
         <script>
             ! function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -127,11 +121,12 @@
                 }
             }(document, 'script', 'weatherwidget-io-js');
         </script>
+        <div id='none'>
 
-        <br>
-
-        <script src="main.js"></script>
+       
     </center>
+    <script src='main.js'></script>
+</div>
 </body>
 
 </html>

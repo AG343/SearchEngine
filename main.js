@@ -4,8 +4,9 @@ var newBookmark = ''
 var name = ''
 var url = ''
 var urlvalue = ''
+var content = ''
 var input = ''
-var row=''
+var row = ''
 var firebaseConfig = {
     apiKey: "AIzaSyASRHCRQpyKxHAvoTAEl_I8CixCWAeJG1I",
     authDomain: "e-and-r-df0db.firebaseapp.com",
@@ -28,10 +29,7 @@ function tutorial() {
 
 function search() {
     input = document.getElementById('searchinput').value
-
-    if (input.length == 0) {
-
-    } else {
+    if (input.length == 0) {} else {
         if (document.getElementById('goog').checked == true) {
             window.location = 'https://www.google.com/search?q=' + input + '&rlz=1C1CHBF_enUS736US736&oq' + input + '&aqs=chrome.0.69i59l2j46i67j0i67j46i67j69i60l3.887j0j7&sourceid=chrome&ie=UTF-8'
             console.log('google')
@@ -49,14 +47,19 @@ function search() {
 }
 
 function voice() {
-    document.getElementById('searchinput').innerHTML = ''
+    document.getElementById('searchinput').value
     recognition.start()
 }
 recognition.onresult = function (event) {
     console.log(event)
-    var content = event.results[0][0].transcript
+    content = event.results[0][0].transcript
     console.log(content)
     document.getElementById('searchinput').innerHTML = content
+    setTimeout(end(), 5000)
+}
+
+function end() {
+    recognition.stop()
 }
 
 function add() {
@@ -64,18 +67,11 @@ function add() {
     console.log(name)
     url = prompt('Enter URL', '')
     console.log(url)
-    /*newBookmark = "<button id='BookmarkButton' class='link btn btn-dark' onclick='bookmark()'>" + name + "</button>"
-    console.log(newBookmark)
-    document.getElementById('btn-output').innerHTML += newBookmark*/
     firebase.database().ref('/').push({
         name: name,
         url: url
     })
-}
-
-function bookmark() {
-    newUrl = document.getElementById('BookmarkButton').value
-    window.open(newUrl, '_blank')
+    localStorage.setItem(name, url)
 }
 
 function getData() {
@@ -85,19 +81,25 @@ function getData() {
             childKey = childSnapshot.key;
             childData = childSnapshot.val();
             if (childKey != "purpose") {
-
                 newBookmark = childKey;
                 bookmark_data = childData
                 console.log(childData)
                 namevalue = bookmark_data['name']
                 urlvalue = bookmark_data['url']
                 console.log("newBookmark - " + newBookmark)
-                row = "<button value=" + urlvalue + " id='BookmarkButton' class='link btn btn-dark' onclick='bookmark()'>" + namevalue + "</button>"
+                row = "<a id='bookmarkanchor' class='btn btn-outline-dark' href='" + urlvalue + "' target='_blank'> " + namevalue + "</a>"
                 document.getElementById('btn_output').innerHTML += row
 
             };
         });
 
     })
+
+
 }
 getData();
+
+function remove() {
+    firebase.database().ref('/').remove()
+    document.getElementById('btn_output').innerHTML = ''
+}

@@ -1,106 +1,119 @@
-button :hover{
-cursor:pointer;
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    zoom: 128.25%;
+    max-height: 100%;
 }
-#body_background{
+
+button :hover {
+    cursor: pointer;
+}
+
+#body_background {
     background-image: url(/abstract_background_template_for_style_design_267606.jpg);
     font-family: 'Shippori Mincho', serif;
 }
-#logout{
+
+#logout {
     justify-content: flex-end;
 }
-#title-tag{
-    
-    font-size: 50px;
+
+
+
+#search {
+    border: none;
+    padding: 0;
+    background: none;
 }
-#search{
-border: none;
-padding: 0;
-background: none;
-}
-hr{
+
+hr {
     color: black;
+    border-width: bold !important;
+    border-style: dotted !important;
 }
-.left{
+
+.left {
     text-align: left;
     display: inline-block;
 }
-a{
+
+a {
     cursor: pointer;
 }
-#img1{
+
+#img1 {
     cursor: pointer;
 }
-#sc-container{
+
+#sc-container {
     text-align: center;
     cursor: pointer;
     border-width: 3px;
     width: 600px;
     height: 300;
-    margin: initial;
-    padding:initial;
+    margin-left: 600px;
+    margin-top: -200px;
+    padding: initial;
     display: inline-block;
 }
-.row{
-    display: inline-block;
-}
-#cnn{
-    width: 100px;
-    height: 100px
-}
-#art1{
-    border-radius: 25px;
-    width: 300px;
-    height:350px;
-    padding: 20px;
-    transition: transform .2s;
-}
-#art1:hover{
--ms-transform: scale(1.1);
--webkit-transform: scale(1.1);
-transform: scale(1.1);
-cursor:pointer;
-}
-#art2{
-    border-radius: 25px;
-    width: 300px;
-    height: 350px;
-    padding: 20px;
-    transition: transform .2s;
-}
-#art2:hover{
--ms-transform: scale(1.1);
--webkit-transform: scale(1.1);
-transform: scale(1.1);
-cursor: pointer;
-}
-#art3{
-    border-radius: 25px;
-    width: 300px;
-    height: 350px;
-    padding: 20px;
-    transition: transform .2s;
-}
-#art3:hover{
--ms-transform: scale(1.1);
--webkit-transform: scale(1.1);
-transform: scale(1.1);
-cursor: pointer;
-}
-#URLinput{
-    height: 20px;
-}
-#mic_button{
+
+#mic_button {
     border-width: 0px;
+    height: 37px;
+    width: 37px;
 }
-.rd:hover{
+
+.rd:hover {
     cursor: pointer;
 }
-#customize{
-    background-color: transparent;
-    border-width: 0px;
-}
-.rightalign{
+
+.rightalign {
     display: inline;
     text-align: center;
 }
 
+#bookmarkanchor {
+    color: white !important;
+    background-color: black !important;
+}
+
+.row {
+    border-width: 0px;
+}
+
+#hr1 {
+    background-color: black;
+    height: 1px;
+    border: 0;
+}
+
+#searchinput {
+    height: 37px;
+}
+
+.sbtn {
+    background-color: white !important;
+    color: black !important;
+    text-shadow: 0.7px 0.7px white;
+}
+
+#h2tag {
+    color: black;
+    text-shadow: 2px 2px 4px red, 0 0 25px red, 0 0 5px darkred;
+}
+
+#h2tag2 {
+    color: lightblue;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+#widgettag {
+    text-shadow: 1px 1px 4px green, 0 0 25px green, 0 0 5px darkolivegreen;
+    color: lightgreen;
+}
+
+#pain {
+    margin-top: -290px;
+    text-align: center !important;
+}
