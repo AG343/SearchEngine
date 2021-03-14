@@ -104,9 +104,10 @@ a {
     color: black !important;
 }
 
-#clock{
-   text-align: center;
+#clock {
+    text-align: center;
 }
+
 .left {
     text-align: left;
     display: block !important;
