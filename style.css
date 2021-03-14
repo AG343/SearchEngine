@@ -30,10 +30,6 @@ hr {
     border-style: dotted !important;
 }
 
-.left {
-    text-align: left;
-    display: inline-block;
-}
 
 a {
     cursor: pointer;
@@ -104,24 +100,14 @@ a {
     color: lightgreen;
 }
 
-#pain {
-    float: left;
-    margin-top: -450px;
-    margin-left: 65px;
-    height: 449px !important;
-    width: 449px !important;
-}
-
 #link1 {
     color: black !important;
 }
 
-#sc-container {
-    text-align: center;
-    width: 43%;
-    height: 60%;
-    margin-left: 500px;
-    margin-top: -150px;
-    padding: initial;
-    display: inline-block;
+#clock{
+   text-align: center;
+}
+.left {
+    text-align: left;
+    display: block !important;
 }

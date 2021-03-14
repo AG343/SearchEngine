@@ -105,28 +105,15 @@
         <button id='delete' class='btn btn-danger' onclick='remove()'>Delete All Shortcuts</button>
         <h2 id='widgettag'>Widgets</h2>
         <hr id='hr1'>
-        <iframe src="https://www.bigtimer.net/?minutes=10&repeat=false" height="250" width="500"
+        <iframe class='left' src="https://www.bigtimer.net/?minutes=10&repeat=false" height="250" width="500"
             scrolling="no"></iframe>
 
         </div>
 
-        <div class='left down'>
-            <iframe
-                src="http://free.timeanddate.com/clock/i7owum3j/n822/fn6/fs22/fc9ff/tc000/ftb/bas2/bat1/bacfff/pa8/tt0/tw1/tm1/td1/th2/ta1/tb4"
-                frameborder="0" width="500" height="250"></iframe>
+        <div class='left' id='clock' style="text-align:center;padding:1em 0;"> <h3><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/5350734"><span style="color:gray;">Current local time in</span><br />Pacific Time Zone</a></h3> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FLos_Angeles" width="100%" height="115" frameborder="0" seamless></iframe> </div>
 
-        </div>
-        <div id='sc-container' style="text-align:right;"> 
-            <div style="min-height:360px;">
-                <div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe
-                        style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;overflow:hidden !important;"
-                        src="https://www.metercustom.net/plugin/"></iframe></div>
-            </div>
-        </div>
-
-        <iframe allow="microphone;" width="350" height="300" class='row'>
-        </iframe>
-        <a id='pain' class="weatherwidget-io row" href="https://forecast7.com/en/37d55n121d99/fremont/"
+        
+        <a id='pain' class="weatherwidget-io left" href="https://forecast7.com/en/37d55n121d99/fremont/"
             data-label_1="FREMONT" data-label_2="WEATHER" data-theme="original">FREMONT WEATHER</a>
         <script>
             ! function (d, s, id) {
