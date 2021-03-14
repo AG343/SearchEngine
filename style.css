@@ -1,7 +1,6 @@
 html,
 body {
     zoom: 128.25%;
-    max-height: 100%;
 }
 
 button :hover {
@@ -44,22 +43,10 @@ a {
     cursor: pointer;
 }
 
-#sc-container {
-    text-align: center;
-    cursor: pointer;
-    border-width: 3px;
-    width: 600px;
-    height: 300;
-    margin-left: 600px;
-    margin-top: -200px;
-    padding: initial;
-    display: inline-block;
-}
-
 #mic_button {
     border-width: 0px;
-    height: 37px;
-    width: 37px;
+    height: 80%;
+    width: 100%;
 }
 
 .rd:hover {
@@ -82,12 +69,12 @@ a {
 
 #hr1 {
     background-color: black;
-    height: 1px;
+    height: 0.1%;
     border: 0;
 }
 
 #searchinput {
-    height: 37px;
+    height: 80%;
 }
 
 .sbtn {
@@ -96,9 +83,15 @@ a {
     text-shadow: 0.7px 0.7px white;
 }
 
+.sbtn :hover {
+    background-color: black !important;
+    color: white !important;
+}
+
 #h2tag {
     color: black;
     text-shadow: 2px 2px 4px red, 0 0 25px red, 0 0 5px darkred;
+
 }
 
 #h2tag2 {
@@ -112,6 +105,23 @@ a {
 }
 
 #pain {
-    margin-top: -290px;
-    text-align: center !important;
+    float: left;
+    margin-top: -450px;
+    margin-left: 65px;
+    height: 449px !important;
+    width: 449px !important;
+}
+
+#link1 {
+    color: black !important;
+}
+
+#sc-container {
+    text-align: center;
+    width: 43%;
+    height: 60%;
+    margin-left: 500px;
+    margin-top: -150px;
+    padding: initial;
+    display: inline-block;
 }
