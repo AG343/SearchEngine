@@ -76,13 +76,14 @@ a {
 .sbtn {
     background-color: white !important;
     color: black !important;
-
+    text-shadow: 0.7px 0.7px white;
 }
 
 .sbtn :hover {
     background-color: black !important;
     color: white !important;
 }
+
 
 #link1 {
     color: black !important;
@@ -94,5 +95,5 @@ a {
 
 .left {
     text-align: left;
-    float:left !important;
+    display: block !important;
 }
