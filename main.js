@@ -46,20 +46,17 @@ function search() {
     }
 }
 
-function voice() {
-    document.getElementById('searchinput').value
+function start() {
+    document.getElementById('searchinput').value=''
     recognition.start()
+    console.log('hi')
 }
-recognition.onresult = function (event) {
+recognition.onresult = function(event) {
     console.log(event)
     content = event.results[0][0].transcript
     console.log(content)
-    document.getElementById('searchinput').innerHTML = content
-    setTimeout(end(), 5000)
-}
-
-function end() {
-    recognition.stop()
+    document.getElementById('searchinput').value = content
+    search();
 }
 
 function add() {
