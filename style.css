@@ -110,5 +110,5 @@ a {
 
 .left {
     text-align: left;
-    display: block !important;
+    float:left !important;
 }
