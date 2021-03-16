@@ -5,7 +5,7 @@
 
     <title>New Tab</title>
 
-    <link rel="icon" href='#'>
+    <link rel="icon" href='flaticon_search-512.webp'>
 
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
@@ -39,7 +39,7 @@
     <hr id='hr1'>
 
     <center>
-        <button class='btn btn-outline-dark' onclick='tutorial()' title='Set Up Tutorial'>
+        <button class='btn btn-outline-dark' onclick='tutorial()'>
             Set Up Info
         </button>
 
@@ -59,63 +59,62 @@
             <div class='inline'>
                 <h2 id='h2tag'>Search On: </h2>
 
-                <form>
-                    <div class='inline'>
-                        <input class='rd' id='yt' type='radio' name='choice'>Youtube
+                <div class=''>
 
-                        <br>
-                        <input class='rd' id='goog' type='radio' name='choice'>Google
+                    <input class='rd form-check-input' id='yt' type='radio' name='choice'>Youtube
 
-                        <br>
-                        <input class='rd' id='gi' type='radio' name='choice'>Google Images
+                    <br>
+                    <input class='rd form-check-input' id='goog' type='radio' name='choice'>Google
 
-                        <br>
-                        <input class='rd' id='amz' type='radio' name='choice'>Amazon
+                    <br>
+                    <input class='rd form-check-input' id='gi' type='radio' name='choice'>Google Images
 
-                </form>
+                    <br>
+                    <input class='rd form-check-input' id='amz' type='radio' name='choice'>Amazon
+
+                </div>
             </div>
-        </div>
-        <div>
-            <button type='button' title='Search' id='search-button' class='btn btn-success sbtn' onclick="search()">
-                Search </button>
+            <div>
+                <button type='button' title='Search' id='search-button' class='btn btn-success sbtn' onclick="search()">
+                    Search </button>
 
-        </div>
-        <hr id='hr1'>
+            </div>
+            <hr id='hr1'>
 
-        <h2 id='h2tag2'>Shortcuts</h2>
+            <h2 id='h2tag2'>Shortcuts</h2>
 
-        <button type='button' id='link' onclick="window.open('https://myaccount.google.com/', '_blank')"
-            class='fas fa-user btn btn-secondary'>Account</button>
-        <button type='button' id='link' onclick="window.open('https://play.google.com/', '_blank')"
-            class='fab fa-google-play btn btn-primary'>GooglePlay</button>
-        <button type='button' id='link' onclick="window.open('https://www.youtube.com/', '_blank')"
-            class='fas fa-play-circle btn btn-danger'>Youtube</button>
-        <button type='button' id='link' onclick="window.open('https://amazon.com/?authuser=1', '_blank')"
-            class='fab fa-amazon btn btn-warning'>Amazon</button>
-        <button type='button' id='link' onclick="window.open('https://hangouts.google.com/?authuser=1', '_blank')"
-            class='fas fa-comment btn btn-success'>Hangouts</button>
-        <button type='button' id='link1' onclick="window.open('https://drive.google.com/', '_blank')"
-            class='far fa-share-square btn btn-info'>GoogleDrive</button>
-        <button type='button' id='link' onclick="window.open('https://gmail.com/', '_blank')"
-            class='fas fa-envelope btn btn-danger'>Gmail</button>
-        <button type='button' id='add' onclick="add()" class='fas fa-plus-square btn btn-link'>AddShortcut</button>
-        <br>
-        <div id='btn_output'></div>
+            <button type='button' id='link' onclick="window.open('https://myaccount.google.com/', '_blank')"
+                class='fas fa-user btn btn-secondary'>Account</button>
+            <button type='button' id='link' onclick="window.open('https://play.google.com/', '_blank')"
+                class='fab fa-google-play btn btn-primary'>GooglePlay</button>
+            <button type='button' id='link' onclick="window.open('https://www.youtube.com/', '_blank')"
+                class='fas fa-play-circle btn btn-danger'>Youtube</button>
+            <button type='button' id='link' onclick="window.open('https://amazon.com/?authuser=1', '_blank')"
+                class='fab fa-amazon btn btn-warning'>Amazon</button>
+            <button type='button' id='link' onclick="window.open('https://hangouts.google.com/?authuser=1', '_blank')"
+                class='fas fa-comment btn btn-success'>Hangouts</button>
+            <button type='button' id='link1' onclick="window.open('https://drive.google.com/', '_blank')"
+                class='far fa-share-square btn btn-info'>GoogleDrive</button>
+            <button type='button' id='link' onclick="window.open('https://gmail.com/', '_blank')"
+                class='fas fa-envelope btn btn-danger'>Gmail</button>
+            <button type='button' id='add' onclick="add()" class='fas fa-plus-square btn btn-link'>AddShortcut</button>
+            <br>
+            <div id='btn_output'></div>
         </div>
         <button id='delete' class='btn btn-danger' onclick='remove()'>Delete All Shortcuts</button>
         <h2 id='widgettag'>Widgets</h2>
         <hr id='hr1'>
+        <div class='left' id='clockdiv' style="text-align:center;padding:1em 0;">
+            <h3>Current Time:</h3>
+            <h5 id='clock'></h5>
+
+        </div>
+
         <iframe class='left' src="https://www.bigtimer.net/?minutes=10&repeat=false" height="250" width="500"
             scrolling="no"></iframe>
 
         </div>
 
-        <div class='left' id='clock' style="text-align:center;padding:1em 0;">
-            <h3><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/5350734"><span
-                        style="color:gray;">Current local time in</span><br />Pacific Time Zone</a></h3> <iframe
-                src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=medium&timezone=America%2FLos_Angeles"
-                width="100%" height="115" frameborder="0" seamless></iframe>
-        </div>
 
 
         <a id='pain' class="weatherwidget-io left" href="https://forecast7.com/en/37d55n121d99/fremont/"

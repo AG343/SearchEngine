@@ -47,11 +47,10 @@ function search() {
 }
 
 function start() {
-    document.getElementById('searchinput').value=''
+    document.getElementById('searchinput').value = ''
     recognition.start()
-    console.log('hi')
 }
-recognition.onresult = function(event) {
+recognition.onresult = function (event) {
     console.log(event)
     content = event.results[0][0].transcript
     console.log(content)
@@ -99,4 +98,10 @@ getData();
 function remove() {
     firebase.database().ref('/').remove()
     document.getElementById('btn_output').innerHTML = ''
+}
+var x = setInterval(clockfun, 1000)
+
+function clockfun() {
+    var clock = new Date()
+    document.getElementById('clock').innerHTML = clock.toLocaleTimeString()
 }

@@ -41,7 +41,7 @@ a {
 
 #mic_button {
     border-width: 0px;
-    height: 80%;
+    height: 37px;
     width: 100%;
 }
 
@@ -49,8 +49,7 @@ a {
     cursor: pointer;
 }
 
-.rightalign {
-    display: inline;
+.rightalign {     
     text-align: center;
 }
 
@@ -70,13 +69,20 @@ a {
 }
 
 #searchinput {
-    height: 80%;
+    height: 37px;
 }
 
 .sbtn {
     background-color: white !important;
     color: black !important;
+    text-shadow: 0.7px 0.7px white;
 }
+
+.sbtn :hover {
+    background-color: black !important;
+    color: white !important;
+}
+
 
 #link1 {
     color: black !important;
@@ -89,4 +95,7 @@ a {
 .left {
     text-align: left;
     display: block !important;
+}
+.inline{
+    text-align: center !important;
 }
