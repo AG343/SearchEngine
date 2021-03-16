@@ -100,8 +100,7 @@ function remove() {
     document.getElementById('btn_output').innerHTML = ''
 }
 var x = setInterval(clockfun, 1000)
-
 function clockfun() {
-    var clock = new Date()
-    document.getElementById('clock').innerHTML = clock.toLocaleTimeString()
+    var clock = new Date();
+    document.getElementById('clock').innerHTML = clock.toLocaleTimeString();
 }
