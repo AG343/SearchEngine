@@ -1,12 +1,12 @@
 var SpeechRecognition = window.webkitSpeechRecognition
 var recognition = new SpeechRecognition()
 var newBookmark = ''
-var name = ''
-var url = ''
-var urlvalue = ''
+var bookmark=[]
+var x=''
+var y=''
+var urlbookmark=[]
 var content = ''
 var input = ''
-var row = ''
 var firebaseConfig = {
     apiKey: "AIzaSyASRHCRQpyKxHAvoTAEl_I8CixCWAeJG1I",
     authDomain: "e-and-r-df0db.firebaseapp.com",
@@ -18,7 +18,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
 function logout() {
     window.location.href = 'https://accounts.google.com/Logout?ec=GAdAwAE'
 }
@@ -57,8 +56,29 @@ recognition.onresult = function (event) {
     document.getElementById('searchinput').value = content
     search();
 }
+showData();
+function showData(){
+    var bookmarkresult=localStorage.getItem(bookmark)
+    for (let i = 0; i < localStorage.length; i++) {
+        x=localStorage.key(i)
+        var y=localStorage.getItem(i)
+        document.getElementById('btn_output').innerHTML+="<a class='btn btn-dark' href='"+y+"'>"+x+"</a>"
+            
+    }
+   
+}
 
-function add() {
+function add(){
+        var name = prompt('Enter Name of Bookmark', 'Bookmark')
+        console.log(name)
+        var url1 = prompt('Enter URL', '')
+        console.log(url1)
+        bookmark.push(name)
+        urlbookmark.push(url1)
+        localStorage.setItem(name, url1)
+        document.getElementById('btn_output').innerHTML+="<a class='btn btn-dark' href='"+url1+"'>"+name+"</a>"
+}
+/*function add() {
     name = prompt('Enter Name of Bookmark', 'Bookmark')
     console.log(name)
     url = prompt('Enter URL', '')
@@ -83,7 +103,7 @@ function getData() {
                 namevalue = bookmark_data['name']
                 urlvalue = bookmark_data['url']
                 console.log("newBookmark - " + newBookmark)
-                row = "<a id='bookmarkanchor' class='btn btn-outline-dark' href='" + urlvalue + "' target='_blank'> " + namevalue + "</a>"
+                row = "<a id='bookmarkanchor' class='btn btn-outline-dark' href='" + urlvalue + "' &nbsp> " + namevalue + "</a>"
                 document.getElementById('btn_output').innerHTML += row
 
             };
@@ -91,16 +111,19 @@ function getData() {
 
     })
 
-
 }
-getData();
-
+getData();*/
 function remove() {
-    firebase.database().ref('/').remove()
+    localStorage.clear()
     document.getElementById('btn_output').innerHTML = ''
+    /*firebase.database().ref('/').remove()
+    document.getElementById('btn_output').innerHTML = ''*/
 }
+
 var x = setInterval(clockfun, 1000)
 function clockfun() {
-    var clock = new Date();
-    document.getElementById('clock').innerHTML = clock.toLocaleTimeString();
+    var clock = new Date()
+    document.getElementById('clock').innerHTML = clock.toLocaleTimeString()
 }
+
+

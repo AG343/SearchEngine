@@ -47,7 +47,7 @@
             <div class='container input-group' id='input-div'>
                 <input type='search' class='form-control' id='searchinput' placeholder='Search The Web'>
                 <div class='input-group-btn'>
-                    <button type='button' id='mic_button' onclick='start()'><i class='fas fa-microphone-alt'
+                    <button title='Search with Voice' type='button' id='mic_button' onclick='start()'><i class='fas fa-microphone-alt'
                             style='font-size:24px;color:red'></i>
                     </button>
                 </div>
@@ -82,23 +82,24 @@
             <hr id='hr1'>
 
             <h2 id='h2tag2'>Shortcuts</h2>
-
-            <button type='button' id='link' onclick="window.open('https://myaccount.google.com/', '_blank')"
+<div id='originalbtndiv'>
+            <button type='button' id='link' onclick="window.open('https://myaccount.google.com/', '_self')"
                 class='fas fa-user btn btn-secondary'>Account</button>
-            <button type='button' id='link' onclick="window.open('https://play.google.com/', '_blank')"
+            <button type='button' id='link' onclick="window.open('https://play.google.com/', '_self')"
                 class='fab fa-google-play btn btn-primary'>GooglePlay</button>
-            <button type='button' id='link' onclick="window.open('https://www.youtube.com/', '_blank')"
+            <button type='button' id='link' onclick="window.open('https://www.youtube.com/', '_self')"
                 class='fas fa-play-circle btn btn-danger'>Youtube</button>
-            <button type='button' id='link' onclick="window.open('https://amazon.com/?authuser=1', '_blank')"
+            <button type='button' id='link' onclick="window.open('https://amazon.com/?authuser=1', '_self')"
                 class='fab fa-amazon btn btn-warning'>Amazon</button>
-            <button type='button' id='link' onclick="window.open('https://hangouts.google.com/?authuser=1', '_blank')"
+            <button type='button' id='link' onclick="window.open('https://hangouts.google.com/?authuser=1', '_self')"
                 class='fas fa-comment btn btn-success'>Hangouts</button>
-            <button type='button' id='link1' onclick="window.open('https://drive.google.com/', '_blank')"
+            <button type='button' id='link1' onclick="window.open('https://drive.google.com/', '_self')"
                 class='far fa-share-square btn btn-info'>GoogleDrive</button>
-            <button type='button' id='link' onclick="window.open('https://gmail.com/', '_blank')"
+            <button type='button' id='link' onclick="window.open('https://gmail.com/', '_self')"
                 class='fas fa-envelope btn btn-danger'>Gmail</button>
             <button type='button' id='add' onclick="add()" class='fas fa-plus-square btn btn-link'>AddShortcut</button>
             <br>
+        </div>
             <div id='btn_output'></div>
         </div>
         <button id='delete' class='btn btn-danger' onclick='remove()'>Delete All Shortcuts</button>
@@ -107,6 +108,7 @@
         <div class='left' id='clockdiv' style="text-align:center;padding:1em 0;">
             <h3>Current Time:</h3>
             <h5 id='clock'></h5>
+
 
         </div>
 
@@ -132,8 +134,10 @@
         </script>
         <div id='none'>
 
-
-    </center>
+            <button type='button' id='add' onclick="test()" class='fas fa-plus-square btn btn-link'>AddShortcut</button>
+    <div id='div1'></div>
+        </center>
+    <script src='index.js'></script>
     <script src='main.js'></script>
     </div>
 </body>

@@ -1,6 +1,7 @@
 html,
 body {
     zoom: 128.25%;
+    scroll-behavior: smooth;
 }
 
 button :hover {
@@ -35,9 +36,6 @@ a {
     cursor: pointer;
 }
 
-#img1 {
-    cursor: pointer;
-}
 
 #mic_button {
     border-width: 0px;
