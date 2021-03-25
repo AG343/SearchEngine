@@ -58,11 +58,10 @@ recognition.onresult = function (event) {
 }
 showData();
 function showData(){
-    var bookmarkresult=localStorage.getItem(bookmark)
     for (let i = 0; i < localStorage.length; i++) {
         x=localStorage.key(i)
-        var y=localStorage.getItem(i)
-        document.getElementById('btn_output').innerHTML+="<a class='btn btn-dark' href='"+y+"'>"+x+"</a>"
+        var bookmarkresult=localStorage.getItem(x)
+        document.getElementById('btn_output').innerHTML+="<a class='btn btn-dark' href='"+bookmarkresult+"'>"+x+"</a>"
             
     }
    
@@ -78,46 +77,10 @@ function add(){
         localStorage.setItem(name, url1)
         document.getElementById('btn_output').innerHTML+="<a class='btn btn-dark' href='"+url1+"'>"+name+"</a>"
 }
-/*function add() {
-    name = prompt('Enter Name of Bookmark', 'Bookmark')
-    console.log(name)
-    url = prompt('Enter URL', '')
-    console.log(url)
-    firebase.database().ref('/').push({
-        name: name,
-        url: url
-    })
-    localStorage.setItem(name, url)
-}
 
-function getData() {
-    firebase.database().ref("/").on('value', function (snapshot) {
-        document.getElementById("btn_output").innerHTML = "";
-        snapshot.forEach(function (childSnapshot) {
-            childKey = childSnapshot.key;
-            childData = childSnapshot.val();
-            if (childKey != "purpose") {
-                newBookmark = childKey;
-                bookmark_data = childData
-                console.log(childData)
-                namevalue = bookmark_data['name']
-                urlvalue = bookmark_data['url']
-                console.log("newBookmark - " + newBookmark)
-                row = "<a id='bookmarkanchor' class='btn btn-outline-dark' href='" + urlvalue + "' &nbsp> " + namevalue + "</a>"
-                document.getElementById('btn_output').innerHTML += row
-
-            };
-        });
-
-    })
-
-}
-getData();*/
 function remove() {
     localStorage.clear()
     document.getElementById('btn_output').innerHTML = ''
-    /*firebase.database().ref('/').remove()
-    document.getElementById('btn_output').innerHTML = ''*/
 }
 
 var x = setInterval(clockfun, 1000)
