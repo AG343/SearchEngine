@@ -1,99 +1,209 @@
 html,
 body {
-    zoom: 128.25%;
-    scroll-behavior: smooth;
+  zoom: 128.25%;
+  scroll-behavior: smooth;
 }
 
 button :hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #body_background {
-    background-image: url(/abstract_background_template_for_style_design_267606.jpg);
-    font-family: 'Shippori Mincho', serif;
+  background-image: url(/abstract_background_template_for_style_design_267606.jpg);
+  font-family: 'Shippori Mincho', serif;
 }
 
 #logout {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 
 
 #search {
-    border: none;
-    padding: 0;
-    background: none;
+  border: none;
+  padding: 0;
+  background: none;
 }
 
 hr {
-    color: black;
-    border-width: bold !important;
-    border-style: dotted !important;
+  color: black;
+  border-width: bold !important;
+  border-style: dotted !important;
 }
 
 
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 
 #mic_button {
-    border-width: 0px;
-    height: 37px;
-    width: 100%;
+  border-width: 0px;
+  height: 37px;
+  width: 100%;
 }
 
 .rd:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.rightalign {     
-    text-align: center;
+.rightalign {
+  text-align: center;
 }
 
 #bookmarkanchor {
-    color: white !important;
-    background-color: black !important;
+  color: white !important;
+  background-color: black !important;
 }
 
 .row {
-    border-width: 0px;
+  border-width: 0px;
 }
 
 #hr1 {
-    background-color: black;
-    height: 0.1%;
-    border: 0;
+  background-color: black;
+  height: 0.1%;
+  border: 0;
 }
 
 #searchinput {
-    height: 37px;
+  height: 37px;
 }
 
-.sbtn {
-    background-color: white !important;
-    color: black !important;
-    text-shadow: 0.7px 0.7px white;
-}
 
-.sbtn :hover {
-    background-color: black !important;
-    color: white !important;
-}
 
 
 #link1 {
-    color: black !important;
+  color: black !important;
 }
 
-#clock {
-    text-align: center;
-}
 
 .left {
-    text-align: left;
-    display: block !important;
+  text-align: left;
+  display: block !important;
 }
-.inline{
-    text-align: center !important;
+
+.inline {
+  text-align: center !important;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#return {
+  color: black !important;
+}
+
+.dropdown-toggle {
+  background-color: auto;
+  color: auto;
+  padding: auto;
+  font-size: auto;
+  border: auto;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: auto;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px lightskyblue;
+  z-index: 1;
+  width: 300px;
+}
+
+
+.dropdown-menu a {
+  color: auto;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-menu a:hover {
+  background-color: auto;
+}
+
+ 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+.dropdown:hover .dropdown-toggle {
+  background-color: auto;
+}
+#send{
+  border-width: 1px;
+  border-color: black;
+}
+#subjectinput{
+  width: fill;
+}
+label :hover{
+  cursor:text;
 }

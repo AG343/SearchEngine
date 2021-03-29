@@ -1,34 +1,24 @@
 var SpeechRecognition = window.webkitSpeechRecognition
 var recognition = new SpeechRecognition()
 var newBookmark = ''
-var bookmark=[]
-var x=''
-var y=''
-var urlbookmark=[]
+var bookmark = []
+var x = ''
+var urlbookmark = []
 var content = ''
 var input = ''
-var firebaseConfig = {
-    apiKey: "AIzaSyASRHCRQpyKxHAvoTAEl_I8CixCWAeJG1I",
-    authDomain: "e-and-r-df0db.firebaseapp.com",
-    databaseURL: "https://e-and-r-df0db.firebaseio.com",
-    projectId: "e-and-r-df0db",
-    storageBucket: "e-and-r-df0db.appspot.com",
-    messagingSenderId: "466423939712",
-    appId: "1:466423939712:web:f39472d9e295972caa9c65"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+
+
 function logout() {
     window.location.href = 'https://accounts.google.com/Logout?ec=GAdAwAE'
 }
 
-function tutorial() {
-    window.location = 'index2.html'
-}
 
 function search() {
     input = document.getElementById('searchinput').value
-    if (input.length == 0) {} else {
+    if (input.length == 0) {
+
+    } else {
+        document.getElementById('searchbutton').disabled == false
         if (document.getElementById('goog').checked == true) {
             window.location = 'https://www.google.com/search?q=' + input + '&rlz=1C1CHBF_enUS736US736&oq' + input + '&aqs=chrome.0.69i59l2j46i67j0i67j46i67j69i60l3.887j0j7&sourceid=chrome&ie=UTF-8'
             console.log('google')
@@ -54,28 +44,35 @@ recognition.onresult = function (event) {
     content = event.results[0][0].transcript
     console.log(content)
     document.getElementById('searchinput').value = content
+    recognition.stop()
+    speak();
     search();
 }
 showData();
-function showData(){
+
+function showData() {
     for (let i = 0; i < localStorage.length; i++) {
-        x=localStorage.key(i)
-        var bookmarkresult=localStorage.getItem(x)
-        document.getElementById('btn_output').innerHTML+="<a class='btn btn-dark' href='"+bookmarkresult+"'>"+x+"</a>"
-            
+        x = localStorage.key(i)
+        var bookmarkresult = localStorage.getItem(x)
+        var sub=bookmarkresult.substring(0, 4)
+       console.log(sub)
+       if (sub=='http') {
+        document.getElementById('btn_output').innerHTML += "<a class='btn btn-dark' href='" + bookmarkresult + "'>" + x + "</a>"
+       }    
+
     }
-   
+
 }
 
-function add(){
-        var name = prompt('Enter Name of Bookmark', 'Bookmark')
-        console.log(name)
-        var url1 = prompt('Enter URL', '')
-        console.log(url1)
-        bookmark.push(name)
-        urlbookmark.push(url1)
-        localStorage.setItem(name, url1)
-        document.getElementById('btn_output').innerHTML+="<a class='btn btn-dark' href='"+url1+"'>"+name+"</a>"
+function add() {
+    var name = prompt('Enter Name of Bookmark', 'Bookmark')
+    console.log(name)
+    var url1 = prompt('Enter URL', '')
+    console.log(url1)
+    bookmark.push(name)
+    urlbookmark.push(url1)
+    localStorage.setItem(name, url1)
+    document.getElementById('btn_output').innerHTML += "<a class='btn btn-dark' href='" + url1 + "'>" + name + "</a>"
 }
 
 function remove() {
@@ -83,10 +80,21 @@ function remove() {
     document.getElementById('btn_output').innerHTML = ''
 }
 
-var x = setInterval(clockfun, 1000)
+var z = setInterval(clockfun, 1000)
+
 function clockfun() {
     var clock = new Date()
     document.getElementById('clock').innerHTML = clock.toLocaleTimeString()
 }
+var input2 = document.getElementById('searchinput');
+input2.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        document.getElementById('searchbutton').click();
+    }
+})
+var d = new Date()
+document.getElementById('date').value = d.toLocaleDateString()
 
-
+const e = document.getElementById('date');
+e.valueAsNumber = Date.now() - (new Date()).getTimezoneOffset() * 60000;
