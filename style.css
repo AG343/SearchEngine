@@ -36,9 +36,10 @@ a {
   cursor: pointer;
 }
 
-
+#mic_button :hover{
+  background-color: lightslategray !important;
+}
 #mic_button {
-  border-width: 0px;
   height: 37px;
   width: 100%;
 }
@@ -61,7 +62,7 @@ a {
 }
 
 #hr1 {
-  background-color: black;
+
   height: 0.1%;
   border: 0;
 }
@@ -93,6 +94,7 @@ a {
   width: 60px;
   height: 34px;
 }
+
 
 .switch input {
   opacity: 0;
@@ -206,4 +208,69 @@ input:checked+.slider:before {
 }
 label :hover{
   cursor:text;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkred; 
+}
+* { box-sizing: border-box; }
+body {
+  font: 16px Arial;
+}
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: black;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: black !important;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue !important;
+  color: black !important;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4 !important;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px !important;
+  cursor: pointer !important;
+  background-color: white !important;
+  border-bottom: 1px solid #d4d4d4 !important;
+  color: black;
+}
+.autocomplete-items div:hover {
+  background-color: #e9e9e9 !important;
+}
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: black !important;
+}
+#date{
+  background-color: white;
+  outline-style:solid;
 }
