@@ -74,6 +74,7 @@ a {
 
 #searchinput {
   height: 37px;
+  background-color: white !important;
 }
 
 ::selection {
