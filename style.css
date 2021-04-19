@@ -11,13 +11,12 @@ button :hover {
 #body_background {
   background-image: url(/abstract_background_template_for_style_design_267606.jpg);
   font-family: 'Shippori Mincho', serif;
+  filter: saturate(250%);
 }
 
 #logout {
   justify-content: flex-end;
 }
-
-
 
 #search {
   border: none;
@@ -36,16 +35,22 @@ a {
   cursor: pointer;
 }
 
-#mic_button :hover{
-  background-color: lightslategray !important;
-}
+
 #mic_button {
   height: 37px;
-  width: 100%;
+  width: 100% !important;
+  position: relative;
+  border-color: black !important;
 }
+
 
 .rd:hover {
   cursor: pointer;
+}
+
+.rd {
+  border-color: initial;
+  border-width: thin;
 }
 
 .rightalign {
@@ -71,8 +76,15 @@ a {
   height: 37px;
 }
 
+::selection {
+  background: rgb(0, 153, 255);
+}
 
 
+#searchinput {
+  border-radius: 2px;
+  background-color: white !important;
+}
 
 #link1 {
   color: black !important;
@@ -108,8 +120,10 @@ a {
   top: 0;
   left: 0;
   right: 0;
+  border-width: 3px;
   bottom: 0;
-  background-color: #ccc;
+  border-width: 3px;
+  background-color: gray;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -127,11 +141,15 @@ a {
 }
 
 input:checked+.slider {
-  background-color: #2196F3;
+  background-color: blue;
+}
+
+input:checked+.slider:before {
+  background-color: black;
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px black;
 }
 
 input:checked+.slider:before {
@@ -172,7 +190,7 @@ input:checked+.slider:before {
   position: absolute;
   background-color: auto;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px lightskyblue;
+  box-shadow: 0px 8px 16px 0px lightblue;
   z-index: 1;
   width: 300px;
 }
@@ -190,7 +208,7 @@ input:checked+.slider:before {
   background-color: auto;
 }
 
- 
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }
@@ -199,54 +217,71 @@ input:checked+.slider:before {
 .dropdown:hover .dropdown-toggle {
   background-color: auto;
 }
-#send{
+
+#send {
   border-width: 1px;
   border-color: black;
 }
-#subjectinput{
+
+#subjectinput {
   width: fill;
 }
-label :hover{
-  cursor:text;
+
+label :hover {
+  cursor: text;
 }
+
 ::-webkit-scrollbar {
   width: 7px;
 }
+
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: red; 
+  background: red;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: darkred; 
+  background: darkred;
 }
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
+  scroll-behavior: smooth;
   font: 16px Arial;
+  filter: brightness(830%);
 }
+
 .autocomplete {
   position: relative;
   display: inline-block;
 }
+
 input {
   border: 1px solid transparent;
   background-color: black;
   padding: 10px;
   font-size: 16px;
 }
+
 input[type=text] {
   background-color: black !important;
   width: 100%;
 }
+
 input[type=submit] {
   background-color: DodgerBlue !important;
   color: black !important;
 }
-.autocomplete-items {
+
+.acitems {
   position: absolute;
   border: 1px solid #d4d4d4 !important;
   border-bottom: none;
@@ -256,21 +291,33 @@ input[type=submit] {
   left: 0;
   right: 0;
 }
-.autocomplete-items div {
+
+.acitems div {
   padding: 10px !important;
   cursor: pointer !important;
   background-color: white !important;
   border-bottom: 1px solid #d4d4d4 !important;
   color: black;
 }
-.autocomplete-items div:hover {
+
+.acitems div:hover {
   background-color: #e9e9e9 !important;
 }
+
 .autocomplete-active {
   background-color: DodgerBlue !important;
   color: black !important;
 }
-#date{
+
+#date {
   background-color: white;
-  outline-style:solid;
+  outline-style: solid;
+}
+
+#big {
+  filter: contrast(200%) invert(100%);
+}
+
+#big:hover {
+  cursor: pointer;
 }

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
 
     <title>New Tab</title>
-
     <link rel="icon" href='flaticon_search-512.webp'>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
@@ -26,11 +25,12 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap');
     </style>
+    
 </head>
 
 <body ng-app='' id='body_background' onload='ck()'>
@@ -39,136 +39,136 @@
         </button>
         <center>
             <div id='move'>
-            <label id='text'>Dark Mode?</label>
-            <br>
-            <label class="switch">
-                <input class='form-control' id='displayswitch' onclick='toggle()' type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </div>
+                <label id='text'>Dark Mode?</label>
+                <br>
+                <label class="switch" style="border-width: 3px; border-color: black !important;">
+                    <input class='form-control' id='displayswitch' onclick='toggle()' type="checkbox">
+                    <span class="slider round"></span>
+                </label>
             </div>
-        </center>
+            
+    </div>
+</center>
+    <hr id='hr1' class='hr'>
+
+    <center>
+        <br>
+        <div class='dropdown'>
+            <button id='setup' class='btn btn-outline-dark dropdown-toggle' data-toggle='dropdown'>
+                Set Up Info
+            </button>
+            <br>
+
+            <div class='dropdown-menu'>
+                <span class='dropdown-item-text disabled' href='#'>
+                    <h1>
+                        Easy Set Up Steps
+                    </h1>
+                    <p>
+                        1. Get the <a
+                            href='https://chrome.google.com/webstore/detail/new-tab-changer/occbjkhimchkolibngmcefpjlbknggfh'
+                            target="_blank">New
+                            Tab Changer</a> from the Chrome Web Store
+                        <br>
+                        2. Go to Chrome Settings(chrome://settings)
+                        <br>
+                        3. Click "On Startup" on the left side of the Screen
+                        <br>
+                        4. Click "Open a specific page or set of pages"
+                        <br>
+                        5. Click Add a new page
+                        <br>
+                        6. Enter the URL from the homepage and click Save
+                        <br>
+                        7. Done!
+                    </p>
+                </span>
+            </div>
+        </div>
+        <form>
+            <div class='container input-group' id='input-div'>
+                <input spellcheck="false" type='text' class='form-control' id='searchinput'
+                    placeholder='Search The Web'>
+                <div class='input-group-btn'>
+                    <button tooltip-title='Search with Voice' type='button' id='mic_button' onclick='start()'
+                        style="background-color: white; border-width: thin; border-radius: 2px; border-color: lightgray;"><i
+                            class='fas fa-microphone-alt'
+                            style='font-size:24px;color:red; background-color: white;'></i>
+                    </button>
+                </div>
+                <datalist id='datalist'></datalist>
+                <br>
+                <br>
+            </div>
+            <div>
+                <div class='inline'>
+                    <h2 id='h2tag'>Search On: </h2>
+
+                    <div class=''>
+
+                        <input value='youtube' class='rd form-check-input' id='yt' type='radio' name='choice'>Youtube
+
+                        <br>
+                        <input value='google' class='rd form-check-input' ng-model='all' ng-checked='true' id='goog'
+                            type='radio' name='choice' checked='true'>Google(default)
+
+                        <br>
+                        <input value='google-imgs' class='rd form-check-input' id='gi' type='radio' name='choice'>Google
+                        Images
+
+                        <br>
+                        <input value='amazon' class='rd form-check-input' id='amz' type='radio' name='choice'>Amazon
+
+                    </div>
+                </div>
+                <div>
+                    <button type='button' title='Search' id='searchbutton' class='btn btn-outline-success sbtn'
+                        onclick="search()">
+                        Search </button>
+
+                </div>
+        </form>
         <hr id='hr1' class='hr'>
 
-        <center>
+        <h2 id='h2tag2'>Shortcuts</h2>
+        <div id='originalbtndiv' class='btn-group btn-group-md'>
+            <button type='button' id='link' onclick="window.open('https://myaccount.google.com/', '_self')"
+                class='fas fa-user btn btn-secondary'>Account</button>
+            <button type='button' id='link' onclick="window.open('https://play.google.com/', '_self')"
+                class='fab fa-google-play btn btn-primary'>GooglePlay</button>
+            <button type='button' id='link' onclick="window.open('https://www.youtube.com/', '_self')"
+                class='fas fa-play-circle btn btn-danger'>Youtube</button>
+            <button type='button' id='link' onclick="window.open('https://amazon.com/?authuser=1', '_self')"
+                class='fab fa-amazon btn btn-warning'>Amazon</button>
+            <button type='button' id='link' onclick="window.open('https://hangouts.google.com/?authuser=1', '_self')"
+                class='fas fa-comment btn btn-success'>Hangouts</button>
+            <button type='button' id='link1' onclick="window.open('https://drive.google.com/', '_self')"
+                class='far fa-share-square btn btn-info'>GoogleDrive</button>
+            <button type='button' id='link' onclick="window.open('https://gmail.com/', '_self')"
+                class='fas fa-envelope btn btn-danger'>Gmail</button>
+            <button onclick="add2()" type='button' id='add' class='fas fa-plus-square btn btn-link'>AddShortcut</button>
             <br>
-            <div class='dropdown'>
-                <button id='setup' class='btn btn-outline-dark dropdown-toggle' data-toggle='dropdown'>
-                    Set Up Info
-                </button>
-                <br>
+        </div>
+        <div id='btn_output'></div>
 
-                <div class='dropdown-menu'>
-                    <span class='dropdown-item-text disabled' href='#'>
-                        <h1>
-                            Easy Set Up Steps
-                        </h1>
-                        <p>
-                            1. Get the <a
-                                href='https://chrome.google.com/webstore/detail/new-tab-changer/occbjkhimchkolibngmcefpjlbknggfh'
-                                target="_blank">New
-                                Tab Changer</a> from the Chrome Web Store
-                            <br>
-                            2. Go to Chrome Settings(chrome://settings)
-                            <br>
-                            3. Click "On Startup" on the left side of the Screen
-                            <br>
-                            4. Click "Open a specific page or set of pages"
-                            <br>
-                            5. Click Add a new page
-                            <br>
-                            6. Enter the URL from the homepage and click Save
-                            <br>
-                            7. Done!
-                        </p>
-                    </span>
-                </div>
-            </div>
-            <form>
-                <div class='container input-group' id='input-div'>
-                    <input type='search' class='form-control' id='searchinput' placeholder='Search The Web'>
-                    <div class='input-group-btn'>
-                        <button title='Search with Voice' type='button' id='mic_button' onclick='start()'
-                            style="background-color: white; border-width: thin; border-radius: 2px; border-color: lightgray;"><i
-                                class='fas fa-microphone-alt'
-                                style='font-size:24px;color:red; background-color: white;'></i>
-                        </button>
-                    </div>
-                    <datalist id='datalist'></datalist>
-                    <br>
-                    <br>
-                </div>
+        <button id='delete' class='btn btn-danger' onclick='remove()'>Delete All Shortcuts</button>
+        </div>
+        <h2>Widgets</h2>
+        <hr id='hr1'>
+        <div class='left' id='clockdiv' style="text-align:center;padding:1em 0;">
+            <h3>Current Time:</h3>
+            <h4 id='clock'></h4>
+            <input data-toggle="tooltip" data-placement='top' title="Calendar" id='date' type='date'>
 
-                <div>
-                    <div class='inline'>
-                        <h2 id='h2tag'>Search On: </h2>
+        </div>
 
-                        <div class=''>
+        <iframe src="https://www.bigtimer.net/?minutes=10&amp;repeat=false" id='big' height="250" width="450"
+            scrolling="no"></iframe>
+        <div id='none'>
 
-                            <input value='youtube' class='rd form-check-input' id='yt' type='radio'
-                                name='choice'>Youtube
-
-                            <br>
-                            <input value='google' class='rd form-check-input' ng-model='all' ng-checked='true' id='goog'
-                                type='radio' name='choice' checked='true'>Google(default)
-
-                            <br>
-                            <input value='google-imgs' class='rd form-check-input' id='gi' type='radio'
-                                name='choice'>Google Images
-
-                            <br>
-                            <input value='amazon' class='rd form-check-input' id='amz' type='radio' name='choice'>Amazon
-
-                        </div>
-                    </div>
-                    <div>
-                        <button type='button' title='Search' id='searchbutton' class='btn btn-outline-success sbtn'
-                            onclick="search()">
-                            Search </button>
-
-                    </div>
-            </form>
-            <hr id='hr1' class='hr'>
-
-            <h2 id='h2tag2'>Shortcuts</h2>
-            <div id='originalbtndiv' class='btn-group btn-group-md'>
-                <button type='button' id='link' onclick="window.open('https://myaccount.google.com/', '_self')"
-                    class='fas fa-user btn btn-secondary'>Account</button>
-                <button type='button' id='link' onclick="window.open('https://play.google.com/', '_self')"
-                    class='fab fa-google-play btn btn-primary'>GooglePlay</button>
-                <button type='button' id='link' onclick="window.open('https://www.youtube.com/', '_self')"
-                    class='fas fa-play-circle btn btn-danger'>Youtube</button>
-                <button type='button' id='link' onclick="window.open('https://amazon.com/?authuser=1', '_self')"
-                    class='fab fa-amazon btn btn-warning'>Amazon</button>
-                <button type='button' id='link' onclick="window.open('https://hangouts.google.com/?authuser=1', '_self')"
-                    class='fas fa-comment btn btn-success'>Hangouts</button>
-                <button type='button' id='link1' onclick="window.open('https://drive.google.com/', '_self')"
-                    class='far fa-share-square btn btn-info'>GoogleDrive</button>
-                <button type='button' id='link' onclick="window.open('https://gmail.com/', '_self')"
-                    class='fas fa-envelope btn btn-danger'>Gmail</button>
-                <button onclick="add2()" type='button' id='add' class='fas fa-plus-square btn btn-link'>AddShortcut</button>
-                <br>
-            </div>
-            <div id='btn_output'></div>
-    
-    <button id='delete' class='btn btn-danger' onclick='remove()'>Delete All Shortcuts</button>
-</div>
-    <h2>Widgets</h2>
-    <hr id='hr1'>
-    <div class='left' id='clockdiv' style="text-align:center;padding:1em 0;">
-        <h3>Current Time:</h3>
-        <h4 id='clock'></h4>
-        <input title='Calendar' id='date' type='date'>
-
-    </div>
-
-    <iframe src="https://www.bigtimer.net/?minutes=10&amp;repeat=false" height="250" width="450"
-        scrolling="no"></iframe>
-    <div id='none'>
-
-        </center>
-        <script src='darkmode.js'></script>
-        <script src='main.js'></script>
+    </center>
+    <script src='darkmode.js'></script>
+    <script src='main.js'></script>
     </div>
     </div>
 </body>

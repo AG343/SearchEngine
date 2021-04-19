@@ -1,4 +1,3 @@
-
 var SpeechRecognition = window.webkitSpeechRecognition
 var recognition = new SpeechRecognition()
 var newBookmark = ''
@@ -7,17 +6,31 @@ var x = ''
 var urlbookmark = []
 var content = ''
 var input = ''
-window.onload=function () {
-    document.getElementById('searchinput').value=''
+window.onload = function () {
+    document.getElementById('searchinput').value = ''
+}
+document.getElementById('searchinput').addEventListener('click', saveinput)
+function saveinput() {
+    var array = []
+    var div=''
+    for (let i = 0; i < 5; i++) {
+        array[i] = localStorage.key(i)
+        console.log(array)
+        div = document.createElement("div")
+        div.setAttribute('id', 'div1')
+        document.getElementById('div1').innerHTML += array[0]
+    }
+
+
 }
 
 function logout() {
     window.location.href = 'https://accounts.google.com/Logout?ec=GAdAwAE'
 }
 
-
 function search() {
     input = document.getElementById('searchinput').value
+    localStorage.setItem(input, input)
     if (input.length == 0) {
 
     } else {
@@ -81,13 +94,12 @@ function showData() {
 function remove() {
     for (let index = 0; index < localStorage.length; index++) {
         sd = localStorage.key(index)
-        if(sd=='true'){
-        continue;
-        }
-        else{
+        if (sd == 'true') {
+            continue;
+        } else {
             localStorage.removeItem(sd)
         }
-        
+
     }
     document.getElementById('btn_output').innerHTML = ''
 }
@@ -108,94 +120,99 @@ var d = new Date()
 document.getElementById('date').value = d.toLocaleDateString()
 const e = document.getElementById('date');
 e.valueAsNumber = Date.now() - (new Date()).getTimezoneOffset() * 60000;
-var words=["amazon", "amazon prime", "youtube", "facebook", "alien", "aol mail", "airbnb", "apple",
-"american airlines", "autozone", "alaska airlines", "amazon prime video", "bank of america", "best buy",
-"bitcoin", "bed bath and beyond", "bridgerton", "bmi calculator", "bath and bode works", "barnes and noble",
-"craigslist", "calculator", "costco", "chase bank", "covid vaccine", "cool math games", "cvs covid vaccine",
-"dmx", "domino's pizza", "doordash", "disney", "disney plus", "discord", "dmv", "dollar tree", "ebay",
-"espn", "etsy", "easter", "earthquake", "expedia", "e-trade", "fox news", "food near me", "fedex tracking",
-"fb", "facebook marketplace", "flights", "fortnite", "gmail", "google translate", "google maps",
-"google drive", "google docs", "gme", "gameshop", "google flights", "home depot", "hotmail","hulu",
-"hbo max", "hobby lobby", "harbor freight tools", "h&m", "hawaiian airlines", "holly madison", "harry styles",
-"instagram", "ikea", "internal revenue service", "indeed", "internet speed test", "instacart", "icloud",
-"iphone 12", "i care a lot", "in-n-out burger", "jack hanna", "johnson and johnson vaccine", "jcpenny",
-"jack in the box", "joelle joanie siwa", "joe biden", "jeff bezos", "judas and the black messiah",
-"jamba", "juventus fc", "kahoot", "kaiser permanente", "kaiser login", "khloe kardashian","kohl's",
-"khan academy", "kevin durant", "kim kardashian", "kroger", "lowe's", "linkedin", "lululemon athletica",
-"louis vuitton", "living spaces", "lil esco 28", "los angeles lakers", "lebron james", "lil nas x",
-"lauren boebert", "masters tournament", "maps", "masters 2021", "msn", "midwin charles", "mcdonald's",
-"mega millions", "matt gaetz", "mortage calculator", "nba", "news", "netflix", "nfl", "nordstrom rack",
-"nba standings", "nike", "old navy", "onlyfans", "outlook", "office depot", "olive garden", "olivia rodrigo",
-"omegle", "office 365", "overstock", "one medical", "phillip adams", "pg&e", "paypal", "pinterest",
-"pizza hut", "pfizer vaccien", "powerball", "panda express", "pizza near me", "ps5", "quizlet", "quizziz",
-"queen of the south", "qvc", "quizlet live", "queen elizabeth II", "qqq", "the queen's gambit", "quadratic formula",
-"restaurants near me", "robinhood", "reddit", "redfin", "recreational equipment, inc.", "round table pizza",
-"raya and the last dragon", "realtor", "rh", "rite aid covid vaccine", "speed test", "stimulus check",
-"safeway", "spotify", "southwest", "starbucks", "southwest airlines", "super bowl lv", "snake", "translate",
-"target", "turbotax", "tesla stock", "tesla", "timer", "twitch", "usps tracking", "ups tracking",
-"united states postal service", "united airlines", "united parcel service", "ulta beauty", "urban outfitters",
-"urban dictionary", "uniqlo", "unemployment", "victoria's secret", "verizon", "vanguard", "vaccine finder",
-"vrbo", "venmo", "vaccine", "valorant", "valheim", "vans", "weather", "walmart", "wells fargo", "golden state warriors",
-"walgreens", "wandavision", "wayfair", "walmart near me", "what lies below", "whole foods market",
-"xfinity", "xbox series x", "xfinity login", "xbox", "xrp price", "xfinity outage", "xfinity stream",
-"xfinity speed test", "xrp", "xfinity phone number", "yahoo", "yahoo mail", "yahoo finance", "yelp",
-"you", "new york yankees", "youtube to mp3", "yahoo news", "zoom", "zillow", "zoom login", "zara",
-"zodiac signs", "zach avery", "zappos", "zendaya", "zach horwitz", "zoom stock", "artificial food coloring"]
-function ac(inp, arr){
-var currentfocus
-inp.addEventListener('input', function(){
-    var b,i,val=this.value
-    closeAllLists()
-    if(!val){return false}
-    currentfocus=-1
-    var a=document.createElement('div')
-    a.setAttribute('id', this.id+'autocomplete-list')
-    a.setAttribute('class', 'autocomplete-items')
-    this.parentNode.appendChild(a)
-    for(i=0; i<arr.length; i++){
-        if(arr[i].substr(0, val.length).toUpperCase()==val.toUpperCase()){
-b=document.createElement('div')
-b.innerHTML="<strong>"+arr[i].substr(0, val.length)+"</strong>"
-b.innerHTML+=arr[i].substr(val.length)
-b.innerHTML+="<input type='hidden' value='"+arr[i]+"'>"
-b.addEventListener('click', function(e){
-    inp.value=this.getElementsByTagName('input')[0].value
-    closeAllLists()
-    search();
-})
-a.appendChild(b)
+var words = ["amazon", "amazon prime", "youtube", "facebook", "alien", "aol mail", "airbnb", "apple",
+    "american airlines", "autozone", "alaska airlines", "amazon prime video", "bank of america", "best buy",
+    "bitcoin", "bed bath and beyond", "bridgerton", "bmi calculator", "bath and bode works", "barnes and noble",
+    "craigslist", "calculator", "costco", "chase bank", "covid vaccine", "cool math games", "cvs covid vaccine",
+    "dmx", "domino's pizza", "doordash", "disney", "disney plus", "discord", "dmv", "dollar tree", "ebay",
+    "espn", "etsy", "easter", "earthquake", "expedia", "e-trade", "fox news", "food near me", "fedex tracking",
+    "fb", "facebook marketplace", "flights", "fortnite", "gmail", "google translate", "google maps",
+    "google drive", "google docs", "gme", "gameshop", "google flights", "home depot", "hotmail", "hulu",
+    "hbo max", "hobby lobby", "how to make a youtube channel", "h&m", "hawaiian airlines", "how to solve a rubiks cube", "harry styles",
+    "instagram", "ikea", "internal revenue service", "indeed", "internet speed test", "instacart", "icloud",
+    "iphone 12", "i care a lot", "in-n-out burger", "jack hanna", "johnson and johnson vaccine", "jcpenny",
+    "jack in the box", "joelle joanie siwa", "joe biden", "jeff bezos", "judas and the black messiah",
+    "jamba", "juventus fc", "kahoot", "kaiser permanente", "kaiser login", "khloe kardashian", "kohl's",
+    "khan academy", "kevin durant", "kim kardashian", "kroger", "lowe's", "linkedin", "lululemon athletica",
+    "louis vuitton", "living spaces", "lil esco 28", "los angeles lakers", "lebron james", "lil nas x",
+    "lauren boebert", "masters tournament", "maps", "masters 2021", "msn", "midwin charles", "mcdonald's",
+    "mega millions", "matt gaetz", "mortage calculator", "nba", "news", "netflix", "nfl", "nordstrom rack",
+    "nba standings", "nike", "old navy", "onlyfans", "outlook", "office depot", "olive garden", "olivia rodrigo",
+    "omegle", "office 365", "overstock", "one medical", "phillip adams", "pg&e", "paypal", "pinterest",
+    "pizza hut", "pfizer vaccien", "powerball", "panda express", "pizza near me", "ps5", "quizlet", "quizziz",
+    "queen of the south", "qvc", "quizlet live", "queen elizabeth II", "qqq", "the queen's gambit", "quadratic formula",
+    "restaurants near me", "robinhood", "reddit", "redfin", "recreational equipment, inc.", "round table pizza",
+    "raya and the last dragon", "realtor", "rh", "rite aid covid vaccine", "speed test", "stimulus check",
+    "safeway", "spotify", "southwest", "starbucks", "southwest airlines", "super bowl lv", "snake", "translate",
+    "target", "turbotax", "tesla stock", "tesla", "timer", "twitch", "usps tracking", "ups tracking",
+    "united states postal service", "united airlines", "united parcel service", "ulta beauty", "urban outfitters",
+    "urban dictionary", "uniqlo", "unemployment", "victoria's secret", "verizon", "vanguard", "vaccine finder",
+    "vrbo", "venmo", "vaccine", "valorant", "valheim", "vans", "weather", "walmart", "wells fargo", "golden state warriors",
+    "walgreens", "wandavision", "wayfair", "walmart near me", "what lies below", "whole foods market",
+    "xfinity", "xbox series x", "xfinity login", "xbox", "xrp price", "xfinity outage", "xfinity stream",
+    "xfinity speed test", "xrp", "xfinity phone number", "yahoo", "yahoo mail", "yahoo finance", "yelp",
+    "you", "new york yankees", "youtube to mp3", "yahoo news", "zoom", "zillow", "zoom login", "zara",
+    "zodiac signs", "zach avery", "zappos", "zendaya", "zach horwitz", "zoom stock", "artificial food coloring"
+]
+
+function ac(inp, arr) {
+    var currentfocus
+    inp.addEventListener('input', function () {
+        var a, b, i, val = this.value
+        closelists()
+        if (!val) {
+            return false
+        }
+        currentfocus = -1
+        a = document.createElement('div')
+        a.setAttribute('id', this.id + 'aclist')
+        a.setAttribute('class', 'acitems')
+        this.parentNode.appendChild(a)
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                b = document.createElement('div')
+                b.innerHTML = "<b>" + arr[i].substr(0, val.length) + "</b>"
+                b.innerHTML += arr[i].substr(val.length)
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>"
+                b.addEventListener('click', function (e) {
+                    inp.value = this.getElementsByTagName('input')[0].value
+                    closelists()
+                    search();
+                })
+                b.addEventListener('mouseover', function () {
+                    inp.value = this.getElementsByTagName('input')[0].value
+                })
+                a.appendChild(b)
+            }
+        }
+    })
+    inp.addEventListener('keydown', function (e) {
+        var x = document.getElementById(this.id + 'aclist')
+        if (x) x = x.getElementsByTagName('div')
+        if (e.keyCode == 40) {
+            currentfocus++
+        } else if (e.keyCode == 38) {
+            currentfocus--
+        } else if (e.keyCode == 13) {
+            e.preventDefault()
+
+            if (currentfocus > -1) {
+                if (x) x[currentfocus].click()
+            }
+        }
+    })
+
+    function closelists(element) {
+        var x = document.getElementsByClassName('acitems')
+        for (let i = 0; i < x.length; i++) {
+            if (element != x[i] && element != inp) {
+                x[i].parentNode.removeChild(x[i])
+            }
+
         }
     }
-})
-inp.addEventListener('keydown', function(e){
-    var x=document.getElementById(this.id+'autocomplete-list')
-    if(x)x=x.getElementsByTagName('div')
-    if(e.keyCode==40){
-        currentfocus++
-    }
-   else if (e.keyCode==38) {
-        currentfocus--
-    }
-    else if(e.keyCode==13){
-        e.preventDefault()
-    
-    if(currentfocus>-1){
-        if(x)x[currentfocus].click()
-    }
-}
-})
-
-function closeAllLists(elmnt){
-    var x=document.getElementsByClassName('autocomplete-items')
-for (let i = 0; i < x.length; i++) {
-    if(elmnt!=x[i]&&elmnt!=inp){
-        x[i].parentNode.removeChild(x[i])
-    }
-    
-}
-}
-document.addEventListener('click', function(e){
-    closeAllLists(e.target)
-})
+    document.addEventListener('click', function (e) {
+        closelists(e.target)
+    })
 }
 ac(document.getElementById("searchinput"), words);
