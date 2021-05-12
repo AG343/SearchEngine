@@ -22,7 +22,7 @@ ck()
 
 function toggle() {
 
-    if (document.getElementById('displayswitch').checked == true) {
+    if (document.getElementById('displayswitch').checked === true) {
 
         console.log(key)
         document.getElementById('body_background').style.backgroundColor = 'black'
@@ -34,7 +34,7 @@ function toggle() {
         localStorage.setItem('true', true)
         document.getElementById('displayswitch').checked = true
 
-    } else if (document.getElementById('displayswitch').checked == false) {
+    } else if (document.getElementById('displayswitch').checked === false) {
         console.log(key)
         localStorage.setItem('true', false)
         document.getElementById('body_background').style.backgroundColor = 'white'

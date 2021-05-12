@@ -6,23 +6,45 @@ var x = ''
 var urlbookmark = []
 var content = ''
 var input = ''
+var secondHand = document.querySelector("#sec");
+var minHand = document.querySelector("#min")
+var hourHand = document.querySelector("#hr")
+setInterval(clockRotating, 1000)
+
+function clockRotating() {
+    var date = new Date();
+    var getSeconds = date.getSeconds() / 60;
+    var getMinutes = date.getMinutes() / 60;
+    var getHours = date.getHours() / 12
+
+    secondHand.style.transform = "rotate(" + getSeconds * 360 + "deg)"
+    minHand.style.transform = "rotate(" + getMinutes * 360 + "deg)"
+    hourHand.style.transform = "rotate(" + getHours * 360 + "deg)"
+
+    document.querySelector(".current-day").innerHTML = date.toDateString()
+    document.querySelector(".current-seconds").innerHTML = date.getSeconds()
+
+}
 window.onload = function () {
     document.getElementById('searchinput').value = ''
 }
 document.getElementById('searchinput').addEventListener('click', saveinput)
+
 function saveinput() {
     var array = []
-    var div=''
+    var div2
     for (let i = 0; i < 5; i++) {
-        array[i] = localStorage.key(i)
+        var str = localStorage.key(i)
         console.log(array)
-        div = document.createElement("div")
-        div.setAttribute('id', 'div1')
-        document.getElementById('div1').innerHTML += array[0]
+        div2 = document.createElement("div")
+        console.log(div2)
+        div2.setAttribute('id', 'div1')
+        div2.innerHTML += str
     }
 
 
 }
+
 
 function logout() {
     window.location.href = 'https://accounts.google.com/Logout?ec=GAdAwAE'
@@ -30,8 +52,8 @@ function logout() {
 
 function search() {
     input = document.getElementById('searchinput').value
-    localStorage.setItem(input, input)
-    if (input.length == 0) {
+    localStorage.setItem('input', input)
+    if (input.length === 0) {
 
     } else {
         document.getElementById('searchbutton').disabled == false
@@ -83,8 +105,8 @@ function showData() {
         var bookmarkresult = localStorage.getItem(x)
         var sub = bookmarkresult.substring(0, 4)
         console.log(sub)
-        if (sub == 'http') {
-            document.getElementById('btn_output').innerHTML += "<a class='btn btn-dark' href='" + bookmarkresult + "'>" + x + "</a>"
+        if (sub === 'http') {
+            document.getElementById('btn_output').innerHTML += "<a style='border-radius: 0px !important;' class='btn btn-dark' href='" + bookmarkresult + "'>" + x + "</a>"
         }
 
     }
@@ -94,7 +116,7 @@ function showData() {
 function remove() {
     for (let index = 0; index < localStorage.length; index++) {
         sd = localStorage.key(index)
-        if (sd == 'true') {
+        if (sd === 'true') {
             continue;
         } else {
             localStorage.removeItem(sd)
@@ -116,8 +138,6 @@ input2.addEventListener("keyup", function (e) {
         document.getElementById('searchbutton').click();
     }
 })
-var d = new Date()
-document.getElementById('date').value = d.toLocaleDateString()
 const e = document.getElementById('date');
 e.valueAsNumber = Date.now() - (new Date()).getTimezoneOffset() * 60000;
 var words = ["amazon", "amazon prime", "youtube", "facebook", "alien", "aol mail", "airbnb", "apple",
@@ -127,7 +147,7 @@ var words = ["amazon", "amazon prime", "youtube", "facebook", "alien", "aol mail
     "dmx", "domino's pizza", "doordash", "disney", "disney plus", "discord", "dmv", "dollar tree", "ebay",
     "espn", "etsy", "easter", "earthquake", "expedia", "e-trade", "fox news", "food near me", "fedex tracking",
     "fb", "facebook marketplace", "flights", "fortnite", "gmail", "google translate", "google maps",
-    "google drive", "google docs", "gme", "gameshop", "google flights", "home depot", "hotmail", "hulu",
+    "google drive", "google classroom", "google docs", "gameshop", "home depot", "hotmail", "hulu",
     "hbo max", "hobby lobby", "how to make a youtube channel", "h&m", "hawaiian airlines", "how to solve a rubiks cube", "harry styles",
     "instagram", "ikea", "internal revenue service", "indeed", "internet speed test", "instacart", "icloud",
     "iphone 12", "i care a lot", "in-n-out burger", "jack hanna", "johnson and johnson vaccine", "jcpenny",
@@ -189,11 +209,11 @@ function ac(inp, arr) {
     inp.addEventListener('keydown', function (e) {
         var x = document.getElementById(this.id + 'aclist')
         if (x) x = x.getElementsByTagName('div')
-        if (e.keyCode == 40) {
+        if (e.keyCode === 40) {
             currentfocus++
-        } else if (e.keyCode == 38) {
+        } else if (e.keyCode === 38) {
             currentfocus--
-        } else if (e.keyCode == 13) {
+        } else if (e.keyCode === 13) {
             e.preventDefault()
 
             if (currentfocus > -1) {
@@ -215,4 +235,6 @@ function ac(inp, arr) {
         closelists(e.target)
     })
 }
+var q=document.getElementById('clock')
+var w=document.getElementById('cc')
 ac(document.getElementById("searchinput"), words);

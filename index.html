@@ -1,37 +1,37 @@
 <html lang='en'>
 
-<head>
-    <meta charset="UTF-8">
-
-    <title>New Tab</title>
-    <link rel="icon" href='flaticon_search-512.webp'>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script src="https://kit.fontawesome.com/0d5add53d5.js" crossorigin="anonymous"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap');
-    </style>
+    <head>
+        <meta charset="UTF-8">
     
-</head>
+        <title>New Tab</title>
+        <link rel="icon" href='flaticon_search-512.webp'>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="https://kit.fontawesome.com/0d5add53d5.js" crossorigin="anonymous"></script>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    
+    
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700&display=swap');
+        </style>
+        
+    </head>
 
 <body ng-app='' id='body_background' onload='ck()'>
     <div class='container' id='animate'>
@@ -85,6 +85,7 @@
                 </span>
             </div>
         </div>
+        
         <form>
             <div class='container input-group' id='input-div'>
                 <input spellcheck="false" type='text' class='form-control' id='searchinput'
@@ -132,36 +133,98 @@
 
         <h2 id='h2tag2'>Shortcuts</h2>
         <div id='originalbtndiv' class='btn-group btn-group-md'>
-            <button type='button' id='link' onclick="window.open('https://myaccount.google.com/', '_self')"
+            <button type='button' id='link1' onclick="window.open('https://myaccount.google.com/', '_self')"
                 class='fas fa-user btn btn-secondary'>Account</button>
-            <button type='button' id='link' onclick="window.open('https://play.google.com/', '_self')"
+            <button type='button' id='link2' onclick="window.open('https://play.google.com/', '_self')"
                 class='fab fa-google-play btn btn-primary'>GooglePlay</button>
-            <button type='button' id='link' onclick="window.open('https://www.youtube.com/', '_self')"
+            <button type='button' id='link3' onclick="window.open('https://www.youtube.com/', '_self')"
                 class='fas fa-play-circle btn btn-danger'>Youtube</button>
-            <button type='button' id='link' onclick="window.open('https://amazon.com/?authuser=1', '_self')"
+            <button type='button' id='link4' onclick="window.open('https://amazon.com/?authuser=1', '_self')"
                 class='fab fa-amazon btn btn-warning'>Amazon</button>
-            <button type='button' id='link' onclick="window.open('https://hangouts.google.com/?authuser=1', '_self')"
+            <button type='button' id='link5' onclick="window.open('https://hangouts.google.com/?authuser=1', '_self')"
                 class='fas fa-comment btn btn-success'>Hangouts</button>
-            <button type='button' id='link1' onclick="window.open('https://drive.google.com/', '_self')"
+            <button type='button' id='link6' onclick="window.open('https://drive.google.com/', '_self')"
                 class='far fa-share-square btn btn-info'>GoogleDrive</button>
-            <button type='button' id='link' onclick="window.open('https://gmail.com/', '_self')"
+            <button type='button' id='link7' onclick="window.open('https://gmail.com/', '_self')"
                 class='fas fa-envelope btn btn-danger'>Gmail</button>
-            <button onclick="add2()" type='button' id='add' class='fas fa-plus-square btn btn-link'>AddShortcut</button>
+            <button onclick="add2()" type='button' id='add' class='d fas fa-plus-square btn btn-link'>AddShortcut</button>
             <br>
         </div>
         <div id='btn_output'></div>
-
         <button id='delete' class='btn btn-danger' onclick='remove()'>Delete All Shortcuts</button>
         </div>
         <h2>Widgets</h2>
         <hr id='hr1'>
         <div class='left' id='clockdiv' style="text-align:center;padding:1em 0;">
             <h3>Current Time:</h3>
+            <div>
+                <ul class="carousel-indicators">
+                  <li data-target="#demo" data-slide-to="0" class="active"></li>
+                  <li data-target="#demo" data-slide-to="1"></li>
+                </ul>
             <h4 id='clock'></h4>
-            <input data-toggle="tooltip" data-placement='top' title="Calendar" id='date' type='date'>
+        <br>
+        <div>
+            <div class="clock-container" id='cc'>  
+                <div class="current-day">  
 
+                </div>  
+                 <div class="current-seconds">  
+
+                </div>  
+                <div class="current-seconds"></div>  
+                <div class="clock-number num1">  
+                    <div>1</div>  
+                </div>  
+                <div class="clock-number num2">  
+                        <div>2</div>  
+                    </div>  
+                <div class="clock-number num3">  
+                    <div>3</div>  
+                 </div>  
+                 <div class="clock-number num4">  
+                     <div>4</div>  
+                    </div>  
+                 <div class="clock-number num5">  
+                    <div>5</div>  
+                     </div>  
+                     <div class="clock-number num6">  
+                       <div>6</div>  
+                    </div>  
+                    <div class="clock-number num7">  
+                  <div>7</div>  
+                    </div>  
+                  <div class="clock-number num8">  
+                     <div>8</div>  
+                    </div>  
+                    <div class="clock-number num9">  
+                      <div>9</div>  
+                      </div>  
+                     <div class="clock-number num10">  
+                       <div>10</div>  
+                         </div>  
+                      <div class="clock-number num11">  
+                     <div>11</div>  
+                      </div>  
+                      <div class="clock-number num12">  
+                   <div>12</div>  
+                    </div>  
+                     <div class="clock-hand" id="sec">  
+                  <div class="second-hand"></div>  
+                 </div>  
+                <div class="clock-hand" id="min">  
+                 <div class="minute-hand"></div>  
+                 </div>  
+               <div class="clock-hand" id="hr">  
+                 <div class="hour-hand"></div>  
+                </div>  
         </div>
-
+            <br>
+            <br>
+            <input data-toggle="tooltip" data-placement='top' title="Calendar" id='date' type='date'>
+            </div>
+        </div>
+<br>
         <iframe src="https://www.bigtimer.net/?minutes=10&amp;repeat=false" id='big' height="250" width="450"
             scrolling="no"></iframe>
         <div id='none'>
