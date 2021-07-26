@@ -398,6 +398,14 @@ input[type=submit] {
   box-shadow: 0px 0px 2px black;
 }
 
+#urlinput{
+  border-color: black;
+  font-size: 15px;
+  display: inline-block;
+  padding: 10px 5px !important;
+  line-height: 10% !important;
+}
+
 #big:hover {
   cursor: pointer;
 }

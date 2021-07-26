@@ -13,13 +13,13 @@ setInterval(clockRotating, 1000)
 
 function clockRotating() {
     var date = new Date();
-    var getSeconds = date.getSeconds() / 60;
-    var getMinutes = date.getMinutes() / 60;
-    var getHours = date.getHours() / 12
+    var getseconds = date.getSeconds() / 60;
+    var getminutes = date.getMinutes() / 60;
+    var gethours = date.getHours() / 12
 
-    secondHand.style.transform = "rotate(" + getSeconds * 360 + "deg)"
-    minHand.style.transform = "rotate(" + getMinutes * 360 + "deg)"
-    hourHand.style.transform = "rotate(" + getHours * 360 + "deg)"
+    secondHand.style.transform = "rotate(" + getseconds * 360 + "deg)"
+    minHand.style.transform = "rotate(" + getminutes * 360 + "deg)"
+    hourHand.style.transform = "rotate(" + gethours * 360 + "deg)"
 
     document.querySelector(".current-day").innerHTML = date.toDateString()
     document.querySelector(".current-seconds").innerHTML = date.getSeconds()
@@ -46,9 +46,24 @@ function saveinput() {
 }
 
 
-function logout() {
-    window.location.href = 'https://accounts.google.com/Logout?ec=GAdAwAE'
-}
+var reg=/.com|.org|.co.uk|.co.au|.gov|.co.in|.edu|.io|.co|.net|.co.ch|/gi
+var urlinput=document.getElementById('urlinput')
+
+urlinput.addEventListener('keyup', function(e){
+    var urlinput1=document.getElementById('urlinput').value
+    console.log(urlinput)
+var boolean=reg.test(urlinput1)
+console.log(boolean)
+    if(e.keyCode===13){
+      if(boolean===true){
+        window.location="https://www."+urlinput1
+      }
+     else if(boolean===false){
+        window.location='https://www.google.com/search?q=' + urlinput1 + '&rlz=1C1CHBF_enUS736US736&oq' + urlinput1 + '&aqs=chrome.0.69i59l2j46i67j0i67j46i67j69i60l3.887j0j7&sourceid=chrome&ie=UTF-8' 
+     }
+    }
+})
+
 
 function search() {
     input = document.getElementById('searchinput').value
