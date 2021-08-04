@@ -1,4 +1,4 @@
-var reg=/.com|.org|.co.uk|.co.au|.gov|.co.in|.edu|.io|.co|.net|.co.ch|/gi
+var reg=/.com|.org|.co.uk|.co.au|.gov|.co.in|.edu|.io|.co|.net|.co.ch/gi
 var urlinput=document.getElementById('urlinput')
 var urlarray=[]
 var urlarray1=[]
